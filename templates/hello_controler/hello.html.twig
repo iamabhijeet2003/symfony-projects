@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HelloControlerController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    h1{
+        color:red;
+        text-align: center;
+    }
+
+    div{
+       
+        text-align:center;
+    }
+
+    img{
+        width:120px;
+    }
+</style>
+    <div>
+        <h1>Hola Gente</h1>
+        <h2>{{name}}, eres una maquina </h2>
+        <img src= "/under_construction.gif" alt="hola" />
+
+        {% for i in 1..10 %}
+            <h2>{{name}}, deixa de fumar porrets 🚬</h2>
+        {% endfor%}
+    </div>
+{% endblock %}
