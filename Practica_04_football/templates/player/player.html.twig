@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1 class="text-center">Player Information</h1>
+
+    {% if player == null %}
+        <h2 class="text-center">Please, enter a valid player ID</h2>
+    {% elseif player.id == null %}
+        <h2 class="text-center">No player found with ID {{ player.id }}</h2>
+    {% else %}
+        <main class="player-info ">
+            <h2 class="text-center">Player: {{ player.name }}</h2>
+            <ul class="text-center list-group">
+                <li class="text-center list-group-item"><strong>Name:</strong> {{ player.name }}</li>
+                <li class="text-center list-group-item"><strong>Country:</strong> {{ player.country }}</li>
+                <li class="text-center list-group-item"><strong>Age:</strong> {{ player.age }}</li>
+                {% if team %}
+                    <li class="text-center list-group-item"><strong>Team:</strong> {{ team.name }}</li>
+                {% endif %}
+            </ul>
+        </main>
+    {% endif %}
+
+{% endblock %}

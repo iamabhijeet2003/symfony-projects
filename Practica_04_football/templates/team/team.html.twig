@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1 class="centered text-center mt-4">Teams App</h1>
+
+    {%  if team == null %}
+        <h2 class="centered text-center mt-4">Please, enter a team Id</h2>
+    {%  elseif team.id == null %}
+        <h2 class="centered text-center mt-4" >No team found with id {{ team.id }} </h2>
+    {%  else %}
+        <main class="team">
+            <h2 class="centered text-center mt-4" >Team: {{ team.id}} </h2>
+            <ul  class="list-group">
+                <li class="list-group-item"><strong>Team Id:</strong> {{ team.id }}</li>
+                <li class="list-group-item"><strong>Name:</strong> {{ team.name }} </li>
+                <li class="list-group-item"><strong>City:</strong> {{ team.city }}</li>
+                    
+                
+            </ul>
+
+            <h3>Players in the Team:</h3>
+            <ul class="list-group">
+                {% for player in players %}
+                    <li class="list-group-item">{{ player.name }} - Age: {{ player.age }}</li>
+                {% endfor %}
+            </ul>
+        </main>
+    {% endif %}
+
+{% endblock %}

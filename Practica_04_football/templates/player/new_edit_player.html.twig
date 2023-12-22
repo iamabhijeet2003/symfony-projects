@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1 class="centered text-center">Player App</h1>
+
+    {%  if player == null %}
+        <h2 class="text-center">{{ action }}</h2>
+    {%  else %}
+        <main class="player text-center">
+            <h2 class="text-center">{{ action }}: Id: {{ player.id }}</h2>
+            <ul class="list-group">
+                <li class="list-group-item text-center"><strong>Name:</strong> {{ player.name}}</li>
+                <li class="list-group-item text-center"><strong>Country:</strong> {{ player.country }} </li>
+                <li class="list-group-item text-center"><strong>Team:</strong> {{ player.idTeam.name }}</li>
+            </ul>
+            
+        </main>
+    {% endif %}
+
+
+{% endblock %}

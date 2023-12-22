@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1 class="centered text-center">Team App</h1>
+    {%  if teams == null %}
+        <h2>No Team found</h2>
+    {%  else %}
+        <main>
+            <h2 class="centered text-center">Teams</h2>
+            <table  class="table table-striped">
+                <tr>
+                    <th></th>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>City</th>
+                   
+                </tr>
+                {% for team in teams %}
+                    <tr>
+                         <td><a href="{{ path('single_team', { id: team.id }) }}">Open team</a></td>
+                        <td>{{ team.id }}</td>
+                        <td>{{ team.name }}</td>
+                        <td>{{ team.city }}</td>
+                       
+                    </tr>
+                {% endfor %}
+            </table>
+        </main>
+    {% endif %}
+{% endblock %}
