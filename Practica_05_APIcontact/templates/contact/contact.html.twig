@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<div class="d-flex align-items-center justify-content-center w-100 bg-primary">
+    <div class="text-center">
+        <h1>My Contacts App</h1>
+        {% if not contact or contact == null %}
+            <h2>Please, enter a contact Id</h2>
+        {% elseif contact.name == null %}
+            <h2>No contact found with id {{ contact.id }} </h2>
+        {% else %}
+            <h2>Contact: {{ contact.title}} {{ contact.name }} {{contact.surname}} </h2>
+        {% endif %}
+    </div>
+</div>
+{% if contact %}
+<div class="d-flex align-items-center justify-content-center w-100 bg-light">
+<ul class="list-group">
+<li class="list-group-item"><strong>Birth date:</strong> {{ contact.birthdate|date('d-m-Y') }}</li>
+<li class="list-group-item"><strong>Email:</strong> {{ contact.email }} </li>
+<li class="list-group-item"><strong>Phones:</strong>
+<ul class="list-group">
+{% for phone in contact.phones %}
+<li class="list-group-item"> {{ phone.type }}: {{ phone.number }} </li>
+{% endfor %}
+</ul>
+</li>
+{% endif %}
+</ul>
+</div>
+{% endblock %}

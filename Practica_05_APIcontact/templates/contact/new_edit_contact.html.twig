@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ page_title }}{% endblock %}
+{% block body %}
+<h2>{{ action }}</h2>
+{% if contact %}
+    <h3>Id: {{ contact.id }} </h3>
+{% endif %}
+{% endblock %}
